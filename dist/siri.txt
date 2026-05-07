@@ -1,2 +1,0 @@
-# siri
-host,guzzoni.apple.com,REJECT-DROP
