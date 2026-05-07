@@ -1,0 +1,40 @@
+host-suffix,mcdn.bilivideo.cn # PCDN 分发节点,reject
+host-suffix,mcdn.bilivideo.com # PCDN 分发节点,reject
+host-suffix,szbdyd.com # PCDN 分发节点,reject
+host-suffix,dyp2p-ali.douyucdn.cn # P2P 分发节点,reject
+host-suffix,dyp2p-hw.douyucdn.cn # P2P 分发节点,reject
+host-suffix,p2p-ali.douyucdn.cn # P2P 分发节点,reject
+host-suffix,p2pchunk-hw.douyucdn.cn # P2P 分片节点,reject
+host-suffix,p2pchunk-table.douyucdn.cn # P2P 调度节点,reject
+host-suffix,p2pchunk-ws.douyucdn.cn # P2P WebSocket 节点,reject
+host-suffix,p2perrorlog.douyucdn.cn # P2P 日志上报,reject
+host-suffix,p2plive-ali.douyucdn.cn # P2P 直播节点,reject
+host-suffix,p2plive-ws.douyucdn.cn # P2P WebSocket 节点,reject
+host-suffix,p2plog.douyucdn.cn # P2P 日志上报节点,reject
+host-suffix,p2pvod-ws.douyucdn.cn # P2P 点播节点,reject
+host-suffix,stun.douyucdn.cn # STUN 穿透服务,reject
+host-suffix,stun1.douyucdn.cn # STUN 穿透服务,reject
+host-suffix,p2p.huya.com # P2P 分发节点,reject
+host-suffix,pcdn.yximgs.com # PCDN 分发节点,reject
+host-suffix,yximgs-webrtc.liveplay.myqcloud.com # WebRTC 传输节点,reject
+host-suffix,tp2p.kg.qq.com # P2P 分发节点,reject
+host-suffix,musicstun.p2p.qq.com # STUN 穿透服务,reject
+host-suffix,stun.qqlive.qq.com # STUN 穿透服务,reject
+host-suffix,p2pupdate.gamedl.qq.com # P2P 更新节点,reject
+host-suffix,p2pupgrade.gamedl.qq.com # P2P 更新节点,reject
+host-suffix,p2ptun.qq.com # P2P 穿透服务,reject
+host-suffix,p2p.qq.com # P2P 通用节点,reject
+host-suffix,twns.p2ptun.qq.com # P2P 穿透服务,reject
+host-suffix,signal.qvb.qcloud.com # WebRTC 信令节点,reject
+host-suffix,stun.qvb.qcloud.com # STUN 穿透服务,reject
+host-suffix,pcdnwxstat.teg.tencent-cloud.net # PCDN 状态统计节点,reject
+host-suffix,pcdnwxnat.teg.tencent-cloud.net # PCDN NAT 穿透节点,reject
+host-suffix,pcdnwxlogin.teg.tencent-cloud.net # PCDN 登录调度节点,reject
+host-suffix,teg.tencent-cloud.net # 腾讯 PCDN 调度体系,reject
+host-suffix,p2p.tracker.tv.sohu.com # P2P Tracker 节点,reject
+host-suffix,onethingpcs.com # 平台域名,reject
+host-suffix,conf-darwin.xycdn.com # PCDN 控制节点,reject
+host-suffix,seeds-open.xycdn.com # P2P 种子分发节点,reject
+host-suffix,sd-gl.xycdn.com # 内容传输节点,reject
+host-suffix,seeds-darwin.xycdn.com # PCDN 种子节点,reject
+host-suffix,yfp2p.net # P2P 服务节点,reject
