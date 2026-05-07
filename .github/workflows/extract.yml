@@ -37,17 +37,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Prepare dist
-        run: |
-          rm -rf dist
-          mkdir -p dist
-
       - name: Build rule sets
         run: |
           python scripts/build_qx_sets.py
 
       - name: List generated files
         run: |
+          echo "---- dist ----"
           ls -la dist || true
           find dist -type f | sort || true
 
