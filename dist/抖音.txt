@@ -1,14 +1,14 @@
 # 抖音
-host,lf3-static.bytednsdoc.com,PROXY
-host,v5-dy-o-abtest.zjcdn.com,PROXY
-host-suffix,amemv.com,PROXY
-host-suffix,douyincdn.com,PROXY
-host-suffix,douyinpic.com,PROXY
-host-suffix,douyinstatic.com,PROXY
-host-suffix,douyinvod.com,PROXY
-host-suffix,idouyinvod.com,PROXY
-host-suffix,ixigua.com,PROXY
-host-suffix,ixiguavideo.com,PROXY
-host-suffix,pstatp.com,PROXY
-host-suffix,snssdk.com,PROXY
-host-suffix,toutiao.com,PROXY
+host,lf3-static.bytednsdoc.com,proxy
+host,v5-dy-o-abtest.zjcdn.com,proxy
+host-suffix,amemv.com,proxy
+host-suffix,douyincdn.com,proxy
+host-suffix,douyinpic.com,proxy
+host-suffix,douyinstatic.com,proxy
+host-suffix,douyinvod.com,proxy
+host-suffix,idouyinvod.com,proxy
+host-suffix,ixigua.com,proxy
+host-suffix,ixiguavideo.com,proxy
+host-suffix,pstatp.com,proxy
+host-suffix,snssdk.com,proxy
+host-suffix,toutiao.com,proxy
