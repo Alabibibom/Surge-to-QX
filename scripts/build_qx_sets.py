@@ -2,8 +2,8 @@ from pathlib import Path
 import csv
 import io
 import re
-import requests
 import shutil
+import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "sources" / "rules-source.conf"
@@ -24,6 +24,8 @@ COMMENT_POLICY_NAMES = {
     "国内", "国外", "苹果进阶", "微软", "测速", "规则订阅与OB与GitHub",
     "reject", "direct", "proxy"
 }
+
+BAD_VALUE_CHARS = set(" #*/:@\\\t\r\n")
 
 
 def prepare_dist():
@@ -77,10 +79,14 @@ def strip_trailing_comment(s: str) -> str:
     s = s.strip()
     if not s:
         return ""
-    if " #" in s:
-        s = s.split(" #", 1)[0].rstrip()
-    if " //" in s:
-        s = s.split(" //", 1)[0].rstrip()
+
+    s = re.split(r"\s+#", s, maxsplit=1)[0].strip()
+    s = re.split(r"\s+//", s, maxsplit=1)[0].strip()
+    s = re.sub(
+        r",\s*(?:DIRECT|PROXY|REJECT|REJECT-DROP|REJECT-NO-DROP|国内|国外|苹果进阶|微软|测速|规则订阅与OB与GitHub)\s*$",
+        "",
+        s
+    )
     return s.strip()
 
 
@@ -111,6 +117,19 @@ def is_ipv6_value(value: str) -> bool:
     return ":" in value
 
 
+def is_valid_domain_value(value: str) -> bool:
+    v = value.strip().lower().lstrip(".")
+    if not v:
+        return False
+    if any(ch in v for ch in BAD_VALUE_CHARS):
+        return False
+    if "." not in v:
+        return False
+    if v.startswith(".") or v.endswith("."):
+        return False
+    return True
+
+
 def normalize_ip_rule(head: str, rest: str, policy: str):
     value = rest.split(",", 1)[0].strip()
     if not value:
@@ -139,7 +158,7 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
 
     if ref_kind == "DOMAIN-SET" and "," not in s:
         value = s.lstrip(".").strip()
-        return f"host-suffix,{value},{policy}" if value else None
+        return f"host-suffix,{value},{policy}" if is_valid_domain_value(value) else None
 
     if "," not in s:
         up = s.upper()
@@ -156,19 +175,19 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
 
     if head in {"domain-suffix", "host-suffix"}:
         value = rest.split(",", 1)[0].strip().lstrip(".")
-        return f"host-suffix,{value},{policy}" if value else None
+        return f"host-suffix,{value},{policy}" if is_valid_domain_value(value) else None
 
     if head in {"domain", "host"}:
         value = rest.split(",", 1)[0].strip()
-        return f"host,{value},{policy}" if value else None
+        return f"host,{value},{policy}" if is_valid_domain_value(value) else None
 
     if head in {"domain-keyword", "host-keyword"}:
         value = rest.split(",", 1)[0].strip()
-        return f"host-keyword,{value},{policy}" if value else None
+        return f"host-keyword,{value},{policy}" if value and " " not in value else None
 
     if head == "host-wildcard":
         value = rest.split(",", 1)[0].strip()
-        return f"host-wildcard,{value},{policy}" if value else None
+        return f"host-wildcard,{value},{policy}" if is_valid_domain_value(value.replace("*", "")) else None
 
     if head in {"ip-cidr6", "ip6-cidr", "ip-cidr"}:
         return normalize_ip_rule(head, rest, policy)
@@ -180,9 +199,6 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
     if head == "ip-asn":
         value = rest.split(",", 1)[0].strip().upper().removeprefix("AS")
         return f"ip-asn,{value},{policy}" if value else None
-
-    if head in {"process-name", "url-regex", "user-agent", "final", "match"}:
-        return None
 
     return None
 
@@ -214,7 +230,6 @@ def main():
         raise FileNotFoundError(f"source file not found: {SRC}")
 
     prepare_dist()
-
     lines = SRC.read_text(encoding="utf-8").splitlines()
     groups = {}
     current_title = None
