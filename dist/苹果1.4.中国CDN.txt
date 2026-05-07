@@ -1,14 +1,3 @@
-host-suffix,#########################################,国内
-host-suffix,# Sukka's Ruleset - Apple CDN,国内
-host-suffix,# Last Updated: 2026-04-18T18:34:48.303Z,国内
-host-suffix,# Size: 164,国内
-host-suffix,# License: AGPL 3.0,国内
-host-suffix,# Homepage: https://ruleset.skk.moe,国内
-host-suffix,# GitHub: https://github.com/SukkaW/Surge,国内
-host-suffix,#,国内
-host-suffix,# This file contains Apple's domains using their China mainland CDN servers.,国内
-host-suffix,# Data from:,国内
-host-suffix,#  - https://github.com/felixonmars/dnsmasq-china-list,国内
 host-suffix,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,国内
 host-suffix,store.apple.com.edgekey.net,国内
 host-suffix,support-china.apple-support.akadns.net,国内
@@ -173,4 +162,3 @@ host-suffix,gsp12-cn.ls.apple.com,国内
 host-suffix,gsp5-cn.ls.apple.com,国内
 host-suffix,gsp4-cn.ls.apple.com,国内
 host-suffix,static.gc.apple.com,国内
-host-suffix,################## EOF,国内

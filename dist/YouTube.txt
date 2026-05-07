@@ -7,7 +7,6 @@ host-suffix,video.google.com,国外
 host-suffix,wide-youtube.l.google.com,国外
 host-suffix,withyoutube.com,国外
 host-suffix,youtu.be,国外
-host-suffix,youtube,国外
 host-suffix,youtube-nocookie.com,国外
 host-suffix,youtube-ui.l.google.com,国外
 host-suffix,youtube.ae,国外

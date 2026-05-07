@@ -20,7 +20,6 @@ host-suffix,alexa.com,国外
 host-suffix,alexafund.cn,国外
 host-suffix,alexafund.com.cn,国外
 host-suffix,amaaozn.com,国外
-host-suffix,amazon,国外
 host-suffix,amazon-adsystem.com,国外
 host-suffix,amazon-fashions.com,国外
 host-suffix,amazon-jp-recruiting.com,国外
@@ -102,7 +101,6 @@ host-suffix,assoc-amazon.cn,国外
 host-suffix,associates-amazon.com,国外
 host-suffix,audible.com,国外
 host-suffix,avodmp4s3ww-a.akamaihd.net,国外
-host-suffix,aws,国外
 host-suffix,aws-iot-hackathon.com,国外
 host-suffix,awsautopilot.com,国外
 host-suffix,awsautoscaling.com,国外
@@ -129,10 +127,8 @@ host-suffix,elasticbeanstalk.com,国外
 host-suffix,gameon-masters.com,国外
 host-suffix,gdansk-amazon.com,国外
 host-suffix,images-amazon.com,国外
-host-suffix,imdb,国外
 host-suffix,imdb.com,国外
 host-suffix,imdb.to,国外
-host-suffix,kindle,国外
 host-suffix,kindle.cn,国外
 host-suffix,kindle.co.jp,国外
 host-suffix,kindle.co.uk,国外
@@ -177,13 +173,9 @@ host-suffix,wholefoodsmarket.co.uk,国外
 host-suffix,wholefoodsmarket.com,国外
 host-suffix,wholekidsfoundation.org,国外
 host-suffix,wholeplanetfoundation.org,国外
-host-suffix,xn--cckwcxetd,国外
-host-suffix,xn--jlq480n2rg,国外
-host-suffix,yamaxun,国外
 host-suffix,yamaxun.cn,国外
 host-suffix,yamaxun.com,国外
 host-suffix,z.cn,国外
-host-suffix,zappos,国外
 host-keyword,avoddashs,国外
 ip-cidr,13.32.0.0/15,国外
 ip-cidr,13.35.0.0/17,国外

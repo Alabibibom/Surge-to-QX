@@ -1,5 +1,4 @@
 host,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,reject
-host-suffix,data,reject
 host-suffix,httpdns.pro,reject
 host-suffix,holashop.org,reject
 host-suffix,telemetry-coverage.mozilla.org,reject

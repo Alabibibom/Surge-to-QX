@@ -1,14 +1,8 @@
 host,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,DIRECT
-host-suffix,localdomain,DIRECT
-host-suffix,internal,DIRECT
 host,mobile.hotspot,DIRECT
-host-suffix,router,DIRECT
 host-suffix,plex.direct,DIRECT
 host-suffix,ui.direct,DIRECT
-host,unifi,DIRECT
 host,ntt.setup,DIRECT
-host-suffix,local,DIRECT
-host-suffix,home,DIRECT
 host,pi.hole,DIRECT
 host-suffix,168.192.in-addr.arpa,DIRECT
 host-suffix,31.172.in-addr.arpa,DIRECT
@@ -36,7 +30,6 @@ host-suffix,tplinkmodem.net,DIRECT
 host-suffix,routerlogin.net,DIRECT
 host-suffix,tplinkwifi.net,DIRECT
 host-suffix,tplinkap.net,DIRECT
-host-suffix,lan,DIRECT
 host,homerouter.cpe,DIRECT
 host-suffix,huaweimobilewifi.com,DIRECT
 host,setmeup.arubanetworks.com,DIRECT
