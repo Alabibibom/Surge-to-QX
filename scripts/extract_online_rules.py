@@ -1,13 +1,17 @@
 from pathlib import Path
 import csv
 import io
+import re
+import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "sources" / "rules-source.conf"
 DIST = ROOT / "dist"
-OUT = DIST / "online-only.conf"
+OUT = DIST / "online-qx.conf"
 
 DIST.mkdir(exist_ok=True)
+
+UA = {"User-Agent": "Mozilla/5.0"}
 
 def parse_csv_line(line: str):
     try:
@@ -17,12 +21,12 @@ def parse_csv_line(line: str):
 
 def is_comment(line: str) -> bool:
     s = line.strip()
-    return s.startswith("#") or s.startswith(";")
+    return s.startswith("#") or s.startswith(";") or s.startswith("//")
 
 def is_blank(line: str) -> bool:
     return line.strip() == ""
 
-def is_online_rule(line: str) -> bool:
+def is_online_ref(line: str) -> bool:
     fields = parse_csv_line(line)
     if len(fields) < 2:
         return False
@@ -30,34 +34,88 @@ def is_online_rule(line: str) -> bool:
     target = fields[1].strip()
     return kind in {"RULE-SET", "DOMAIN-SET"} and target.startswith(("http://", "https://"))
 
-def normalize_blank_lines(lines):
-    cleaned = []
-    last_blank = True
-    for line in lines:
+def extract_url(line: str) -> str | None:
+    fields = parse_csv_line(line)
+    if len(fields) < 2:
+        return None
+    target = fields[1].strip()
+    return target if target.startswith(("http://", "https://")) else None
+
+def fetch_text(url: str) -> str:
+    r = requests.get(url, headers=UA, timeout=60)
+    r.raise_for_status()
+    return r.text
+
+def convert_rule_line(line: str):
+    s = line.strip()
+    if not s or is_comment(s):
+        return None
+
+    s = s.replace("\ufeff", "")
+
+    if s.startswith(("DOMAIN,", "host,")):
+        return "HOST," + s.split(",", 1)[1]
+
+    if s.startswith(("DOMAIN-SUFFIX,", "domain-suffix,")):
+        return "HOST-SUFFIX," + s.split(",", 1)[1]
+
+    if s.startswith(("DOMAIN-KEYWORD,", "host-keyword,")):
+        return "HOST-KEYWORD," + s.split(",", 1)[1]
+
+    if s.startswith(("DOMAIN-SET,", "host-set,")):
+        return "HOST-SUFFIX," + s.split(",", 1)[1]
+
+    if s.startswith(("IP-CIDR6,",)):
+        return s.replace("IP-CIDR6,", "IP6-CIDR,", 1)
+
+    if s.startswith(("IP-CIDR,",)):
+        return s
+
+    if s.startswith(("GEOIP,",)):
+        return s
+
+    if s.startswith(("USER-AGENT,", "USER-AGENT-KEYWORD,", "URL-REGEX,", "PROCESS-NAME,")):
+        return s
+
+    if s.startswith(("HOST,", "HOST-SUFFIX,", "HOST-KEYWORD,", "IP-CIDR,", "IP6-CIDR,", "IP-CIDR6,", "GEOIP,", "USER-AGENT,", "URL-REGEX,", "PROCESS-NAME,")):
+        return s
+
+    if s.startswith("#"):
+        return s
+
+    return None
+
+def convert_content(text: str):
+    out = []
+    seen = set()
+    for raw in text.splitlines():
+        line = raw.rstrip()
         if is_blank(line):
-            if not last_blank:
-                cleaned.append("")
-            last_blank = True
-        else:
-            cleaned.append(line.rstrip())
-            last_blank = False
-    while cleaned and cleaned[-1] == "":
-        cleaned.pop()
-    return cleaned
+            if out and out[-1] != "":
+                out.append("")
+            continue
+        if is_comment(line):
+            out.append(line)
+            continue
+
+        conv = convert_rule_line(line)
+        if conv and conv not in seen:
+            seen.add(conv)
+            out.append(conv)
+    while out and out[-1] == "":
+        out.pop()
+    return out
 
 def main():
-    if not SRC.exists():
-        raise FileNotFoundError(f"source file not found: {SRC}")
-
-    lines = SRC.read_text(encoding="utf-8").splitlines()
+    src_lines = SRC.read_text(encoding="utf-8").splitlines()
     output = []
     pending_comments = []
 
-    for raw in lines:
+    for raw in src_lines:
         line = raw.rstrip()
 
         if is_blank(line):
-            if pending_comments and (not pending_comments or pending_comments[-1] != ""):
+            if pending_comments and pending_comments[-1] != "":
                 pending_comments.append("")
             continue
 
@@ -65,17 +123,27 @@ def main():
             pending_comments.append(line)
             continue
 
-        if is_online_rule(line):
-            if output and output[-1] != "" and pending_comments:
-                output.append("")
-            output.extend(pending_comments)
-            output.append(line)
+        if is_online_ref(line):
+            url = extract_url(line)
+            if pending_comments:
+                if output and output[-1] != "":
+                    output.append("")
+                output.extend(pending_comments)
             pending_comments = []
+            try:
+                remote = fetch_text(url)
+                converted = convert_content(remote)
+                if converted:
+                    output.extend(converted)
+            except Exception as e:
+                output.append(f"# fetch failed: {url} ({e})")
         else:
             pending_comments = []
 
-    result = normalize_blank_lines(output)
-    OUT.write_text("\n".join(result) + "\n", encoding="utf-8")
+    while output and output[-1] == "":
+        output.pop()
+
+    OUT.write_text("\n".join(output) + "\n", encoding="utf-8")
     print(f"generated: {OUT}")
 
 if __name__ == "__main__":
