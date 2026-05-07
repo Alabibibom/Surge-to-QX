@@ -1,0 +1,13 @@
+host,lf3-static.bytednsdoc.com,国内
+host,v5-dy-o-abtest.zjcdn.com,国内
+host-suffix,amemv.com,国内
+host-suffix,douyincdn.com,国内
+host-suffix,douyinpic.com,国内
+host-suffix,douyinstatic.com,国内
+host-suffix,douyinvod.com,国内
+host-suffix,idouyinvod.com,国内
+host-suffix,ixigua.com,国内
+host-suffix,ixiguavideo.com,国内
+host-suffix,pstatp.com,国内
+host-suffix,snssdk.com,国内
+host-suffix,toutiao.com,国内
