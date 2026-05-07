@@ -53,21 +53,28 @@ def sanitize_filename(name: str) -> str:
     name = re.sub(r"\s+", "", name)
     return name[:80] if len(name) > 80 else name
 
+def normalize_policy(p: str) -> str:
+    p = (p or "").strip().upper()
+    if p in {"REJECT", "REJECT-DROP", "REJECT-NO-DROP"}:
+        return "reject"
+    if p == "DIRECT":
+        return "direct"
+    if p == "PROXY":
+        return "proxy"
+    return "proxy"
+
 def extract_policy(line: str) -> str:
     fields = parse_csv_line(line)
     if len(fields) < 3:
-        return "PROXY"
-    p = fields[2].strip()
-    if p in {"DIRECT", "REJECT", "REJECT-DROP", "REJECT-NO-DROP", "PROXY"}:
-        return p
-    return "PROXY"
+        return "proxy"
+    return normalize_policy(fields[2])
 
 def fetch_text(url: str) -> str:
     r = requests.get(url, headers=UA, timeout=60)
     r.raise_for_status()
     return r.text
 
-def normalize_qx_rule(line: str, default_policy="PROXY"):
+def normalize_qx_rule(line: str, default_policy="proxy"):
     s = line.strip().replace("\ufeff", "")
     if not s or is_comment(s):
         return None
@@ -102,7 +109,7 @@ def normalize_qx_rule(line: str, default_policy="PROXY"):
 
     return None
 
-def convert_remote_rules(text: str, policy="PROXY"):
+def convert_remote_rules(text: str, policy="proxy"):
     out = []
     seen = set()
     for raw in text.splitlines():
