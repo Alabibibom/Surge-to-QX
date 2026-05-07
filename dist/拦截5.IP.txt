@@ -1,4 +1,4 @@
-# 拦截 5.IP
+# 拦截5.IP
 host,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,reject
 ip-cidr,10.72.25.0/24,no-resolve,reject
 ip-cidr,39.107.15.115/32,no-resolve,reject

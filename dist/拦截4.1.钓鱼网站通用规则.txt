@@ -1,4 +1,4 @@
-# 拦截 4.1.钓鱼网站通用规则
+# 拦截4.1.钓鱼网站通用规则
 host,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,reject
 host-suffix,data,reject
 host-suffix,httpdns.pro,reject

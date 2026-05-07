@@ -1,4 +1,4 @@
-# 中国 IP 2.IPv6
+# 中国IP2.IPv6
 host,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,proxy
 ip6-cidr,2001:250::/31,proxy
 ip6-cidr,2001:252::/32,proxy
