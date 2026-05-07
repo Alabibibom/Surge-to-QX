@@ -40694,8 +40694,6 @@ host-suffix,weakermumrespect.com,reject
 host-suffix,wawahrsdfrhfsdfh.com,reject
 host-suffix,watchamateurcams.com,reject
 host-suffix,walnutdescendant.com,reject
-host-suffix,xtl2._domainkey.walmartmoneycard.com,reject
-host-suffix,xtl._domainkey.walmartmoneycard.com,reject
 host-suffix,em9523.walmartmoneycard.com,reject
 host-suffix,share.walmartmoneycard.com,reject
 host-suffix,wailafterthought.com,reject
@@ -52263,8 +52261,6 @@ host-suffix,vioturallis.com,reject
 host-suffix,vinpearl1.vingroupsny.com,reject
 host-suffix,vinacombank.com,reject
 host-suffix,share-us.viktor-rolf.com,reject
-host-suffix,xtl2._domainkey.shareus.viktor-rolf.com,reject
-host-suffix,xtl._domainkey.shareus.viktor-rolf.com,reject
 host-suffix,em9347.shareus.viktor-rolf.com,reject
 host-suffix,viewconsole.com,reject
 host-suffix,vietnamkdam.com,reject
@@ -55641,8 +55637,6 @@ host-suffix,space-high.com,reject
 host-suffix,sp315693vn.com,reject
 host-suffix,southfreck.com,reject
 host-suffix,southbrief.com,reject
-host-suffix,xtl2._domainkey.soundcloud.com,reject
-host-suffix,xtl._domainkey.soundcloud.com,reject
 host-suffix,invite.soundcloud.com,reject
 host-suffix,em8031.soundcloud.com,reject
 host-suffix,sotomistel.com,reject
@@ -57029,8 +57023,6 @@ host-suffix,forthrisky.com,reject
 host-suffix,fortgulped.com,reject
 host-suffix,formalyzer.com,reject
 host-suffix,formalhood.com,reject
-host-suffix,xtl2._domainkey.forgetrust.com,reject
-host-suffix,xtl._domainkey.forgetrust.com,reject
 host-suffix,em767.forgetrust.com,reject
 host-suffix,forexhelps.com,reject
 host-suffix,for20-coco.com,reject
@@ -59880,7 +59872,6 @@ host-suffix,statcount.com,reject
 host-suffix,statautos.com,reject
 host-suffix,starsbiog.com,reject
 host-suffix,share.starbucks.com,reject
-host-suffix,xtl2._domainkey.refer.starbucks.com,reject
 host-suffix,em924.refer.starbucks.com,reject
 host-suffix,staluqhfa.com,reject
 host-suffix,staleshow.com,reject
@@ -64462,10 +64453,6 @@ host-suffix,dasdaily.com,reject
 host-suffix,daoteams.com,reject
 host-suffix,daleriki.com,reject
 host-suffix,daiporno.com,reject
-host-suffix,xtl2._domainkey.dailypay.com,reject
-host-suffix,xtl._domainkey.dailypay.com,reject
-host-suffix,xtl2._domainkey.rewards.dailypay.com,reject
-host-suffix,xtl._domainkey.rewards.dailypay.com,reject
 host-suffix,em5230.rewards.dailypay.com,reject
 host-suffix,em7952.dailypay.com,reject
 host-suffix,share.dailypay.com,reject
@@ -65251,8 +65238,6 @@ host-suffix,rtb-3.xgroovy.com,reject
 host-suffix,propertyperks.xfinity.com,reject
 host-suffix,referafriend.xfinity.com,reject
 host-suffix,refer.xfinity.com,reject
-host-suffix,xtl2._domainkey.mail.raf.xfinity.com,reject
-host-suffix,xtl._domainkey.mail.raf.xfinity.com,reject
 host-suffix,em4504.mail.raf.xfinity.com,reject
 host-suffix,xertive.com,reject
 host-suffix,xenxonx.com,reject
@@ -67882,8 +67867,6 @@ host-suffix,ad.thisav.com,reject
 host-suffix,thevtk.com,reject
 host-suffix,analytics.thetab.com,reject
 host-suffix,cp.thetab.com,reject
-host-suffix,xtl2._domainkey.theory.com,reject
-host-suffix,xtl._domainkey.theory.com,reject
 host-suffix,em2287.theory.com,reject
 host-suffix,share.theory.com,reject
 host-suffix,share.uk.theory.com,reject
@@ -69615,8 +69598,6 @@ host-suffix,ad-gbn.com,reject
 host-suffix,ad-fam.com,reject
 host-suffix,ad-411.com,reject
 host-suffix,acttas.com,reject
-host-suffix,xtl2._domainkey.notifications.acorns.com,reject
-host-suffix,xtl._domainkey.notifications.acorns.com,reject
 host-suffix,em8642.notifications.acorns.com,reject
 host-suffix,acetrk.com,reject
 host-suffix,acebet.com,reject
@@ -75591,7 +75572,6 @@ host-suffix,faceu.us,reject
 host-suffix,bitin.us,reject
 host-suffix,amung.us,reject
 host-suffix,204st.us,reject
-host-suffix,xtl._domainkey.zoom.us,reject
 host-suffix,tmcontent.zoom.us,reject
 host-suffix,click.e.zoom.us,reject
 host-suffix,old.umcl.us,reject
@@ -75761,7 +75741,6 @@ host-suffix,sitetagger.co.uk,reject
 host-suffix,log.scanmypost.co.uk,reject
 host-suffix,click.emails.tuclothing.sainsburys.co.uk,reject
 host-suffix,tm.rsa-claims.co.uk,reject
-host-suffix,xtl._domainkey.referral.quickbooks.co.uk,reject
 host-suffix,em2279.referral.quickbooks.co.uk,reject
 host-suffix,refer.quickbooks.co.uk,reject
 host-suffix,login.eevee.prd-mettle.co.uk,reject
