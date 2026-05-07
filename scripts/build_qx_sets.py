@@ -10,7 +10,6 @@ DIST = ROOT / "dist"
 DIST.mkdir(exist_ok=True)
 
 UA = {"User-Agent": "Mozilla/5.0"}
-COMMENT_PREFIXES = ("#", ";", "//")
 
 POLICY_ALIASES = {
     "REJECT": "reject",
@@ -26,6 +25,8 @@ KNOWN_POLICY_NAMES = {
     "reject", "direct", "proxy"
 }
 
+COMMENT_PREFIXES = ("#", ";", "//")
+
 
 def parse_csv_line(line: str):
     try:
@@ -40,11 +41,6 @@ def sanitize_filename(name: str) -> str:
     return name[:120] if len(name) > 120 else name
 
 
-def is_comment(line: str) -> bool:
-    s = line.strip()
-    return s.startswith(COMMENT_PREFIXES)
-
-
 def extract_title(line: str):
     s = line.strip()
     if s.startswith("#"):
@@ -57,11 +53,9 @@ def extract_ref(line: str):
     fields = parse_csv_line(line)
     if len(fields) < 2:
         return None, None, None
-
     kind = fields[0].strip().upper()
     target = fields[1].strip()
     policy = fields[2].strip() if len(fields) >= 3 else "PROXY"
-
     if kind in {"RULE-SET", "DOMAIN-SET"}:
         return kind, target, policy
     return None, None, None
@@ -80,24 +74,13 @@ def strip_trailing_comment(s: str) -> str:
     if not s:
         return ""
 
-    in_escape = False
     for i, ch in enumerate(s):
-        if ch == "\\" and not in_escape:
-            in_escape = True
-            continue
-
-        if ch == "#" and not in_escape:
-            prev = s[i - 1] if i > 0 else ""
-            if prev.isspace() or i == 0:
-                return s[:i].rstrip()
-
-        if ch == "/" and not in_escape and i + 1 < len(s) and s[i + 1] == "/":
+        if ch == "#" and (i == 0 or s[i - 1].isspace()):
+            return s[:i].rstrip()
+        if ch == "/" and i + 1 < len(s) and s[i + 1] == "/":
             prev = s[i - 1] if i > 0 else ""
             if prev not in {":", "\\"}:
                 return s[:i].rstrip()
-
-        in_escape = False
-
     return s.strip()
 
 
@@ -105,11 +88,9 @@ def trim_last_policy_token(value: str) -> str:
     parts = [p.strip() for p in value.split(",")]
     if len(parts) <= 1:
         return value.strip()
-
     last = parts[-1].strip()
     if last in KNOWN_POLICY_NAMES:
         return ",".join(parts[:-1]).strip()
-
     return value.strip()
 
 
@@ -153,8 +134,9 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
                 return f"ip-asn,{up.removeprefix('AS')},{policy}"
             if re.fullmatch(r"\d+", up):
                 return f"ip-asn,{up},{policy}"
+        return None
 
-    head, rest = s.split(",", 1) if "," in s else (s.lower(), "")
+    head, rest = s.split(",", 1)
     head = head.strip().lower()
     rest = trim_last_policy_token(rest)
 
