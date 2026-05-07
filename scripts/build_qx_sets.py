@@ -19,7 +19,7 @@ POLICY_ALIASES = {
     "PROXY": "PROXY",
 }
 
-KNOWN_POLICY_NAMES = {
+COMMENT_POLICY_NAMES = {
     "DIRECT", "PROXY", "REJECT", "REJECT-DROP", "REJECT-NO-DROP",
     "国内", "国外", "苹果进阶", "微软", "测速", "规则订阅与OB与GitHub",
     "reject", "direct", "proxy"
@@ -71,24 +71,24 @@ def strip_trailing_comment(s: str) -> str:
     s = s.strip()
     if not s:
         return ""
-    for i, ch in enumerate(s):
-        if ch == "#" and (i == 0 or s[i - 1].isspace()):
-            return s[:i].rstrip()
-        if ch == "/" and i + 1 < len(s) and s[i + 1] == "/":
-            prev = s[i - 1] if i > 0 else ""
-            if prev not in {":", "\\"}:
-                return s[:i].rstrip()
+
+    if " #" in s:
+        s = s.split(" #", 1)[0].rstrip()
+
+    if " //" in s:
+        s = s.split(" //", 1)[0].rstrip()
+
     return s.strip()
 
 
-def trim_last_policy_token(value: str) -> str:
-    parts = [p.strip() for p in value.split(",")]
+def trim_last_policy_token(rest: str) -> str:
+    parts = [p.strip() for p in rest.split(",")]
     if len(parts) <= 1:
-        return value.strip()
-    last = parts[-1].strip()
-    if last in KNOWN_POLICY_NAMES:
+        return rest.strip()
+
+    if parts[-1] in COMMENT_POLICY_NAMES:
         return ",".join(parts[:-1]).strip()
-    return value.strip()
+    return rest.strip()
 
 
 def parse_payload_yaml_line(line: str):
@@ -169,12 +169,9 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
         value = rest.split(",", 1)[0].strip().upper().removeprefix("AS")
         return f"ip-asn,{value},{policy}" if value else None
 
-    if head in {"process-name", "url-regex"}:
+    # 这些类型当前直接全部丢弃，避免 QX Invalid Line
+    if head in {"process-name", "url-regex", "user-agent", "final", "match"}:
         return None
-
-    if head in {"final", "match"}:
-        value = rest.split(",", 1)[0].strip() if rest else policy
-        return f"{head},{value}" if value else head
 
     return None
 
