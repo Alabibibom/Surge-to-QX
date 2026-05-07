@@ -1,7 +1,6 @@
 from pathlib import Path
 import csv
 import io
-import re
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -41,51 +40,49 @@ def extract_url(line: str) -> str | None:
     target = fields[1].strip()
     return target if target.startswith(("http://", "https://")) else None
 
+def extract_policy(line: str) -> str:
+    fields = parse_csv_line(line)
+    if len(fields) < 3:
+        return "PROXY"
+    p = fields[2].strip()
+    if p in {"DIRECT", "REJECT", "REJECT-DROP", "REJECT-NO-DROP"}:
+        return p
+    return "PROXY"
+
 def fetch_text(url: str) -> str:
     r = requests.get(url, headers=UA, timeout=60)
     r.raise_for_status()
     return r.text
 
-def convert_rule_line(line: str):
+def qx_convert_line(line: str, default_policy="PROXY"):
     s = line.strip()
     if not s or is_comment(s):
         return None
 
     s = s.replace("\ufeff", "")
 
-    if s.startswith(("DOMAIN,", "host,")):
-        return "HOST," + s.split(",", 1)[1]
-
     if s.startswith(("DOMAIN-SUFFIX,", "domain-suffix,")):
-        return "HOST-SUFFIX," + s.split(",", 1)[1]
-
+        return "HOST-SUFFIX," + s.split(",", 1)[1] + f",{default_policy}"
+    if s.startswith(("DOMAIN,", "host,")):
+        return "HOST," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith(("DOMAIN-KEYWORD,", "host-keyword,")):
-        return "HOST-KEYWORD," + s.split(",", 1)[1]
-
-    if s.startswith(("DOMAIN-SET,", "host-set,")):
-        return "HOST-SUFFIX," + s.split(",", 1)[1]
-
+        return "HOST-KEYWORD," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith(("IP-CIDR6,",)):
-        return s.replace("IP-CIDR6,", "IP6-CIDR,", 1)
-
+        return "IP6-CIDR," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith(("IP-CIDR,",)):
-        return s
-
+        return "IP-CIDR," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith(("GEOIP,",)):
-        return s
-
-    if s.startswith(("USER-AGENT,", "USER-AGENT-KEYWORD,", "URL-REGEX,", "PROCESS-NAME,")):
-        return s
-
-    if s.startswith(("HOST,", "HOST-SUFFIX,", "HOST-KEYWORD,", "IP-CIDR,", "IP6-CIDR,", "IP-CIDR6,", "GEOIP,", "USER-AGENT,", "URL-REGEX,", "PROCESS-NAME,")):
-        return s
-
-    if s.startswith("#"):
-        return s
-
+        parts = s.split(",")
+        if len(parts) >= 2:
+            return f"GEOIP,{parts[1]},{default_policy}"
+    if s.startswith(("USER-AGENT,", "URL-REGEX,", "PROCESS-NAME,")):
+        return s + f",{default_policy}"
+    if s.startswith(("HOST,", "HOST-SUFFIX,", "HOST-KEYWORD,", "IP-CIDR,", "IP6-CIDR,", "GEOIP,", "USER-AGENT,", "URL-REGEX,", "PROCESS-NAME,")):
+        if s.count(",") >= 2:
+            return ",".join(s.split(",")[:-1]) + f",{default_policy}"
     return None
 
-def convert_content(text: str):
+def convert_content(text: str, policy="PROXY"):
     out = []
     seen = set()
     for raw in text.splitlines():
@@ -98,10 +95,11 @@ def convert_content(text: str):
             out.append(line)
             continue
 
-        conv = convert_rule_line(line)
+        conv = qx_convert_line(line, policy)
         if conv and conv not in seen:
             seen.add(conv)
             out.append(conv)
+
     while out and out[-1] == "":
         out.pop()
     return out
@@ -125,6 +123,7 @@ def main():
 
         if is_online_ref(line):
             url = extract_url(line)
+            policy = extract_policy(line)
             if pending_comments:
                 if output and output[-1] != "":
                     output.append("")
@@ -132,7 +131,7 @@ def main():
             pending_comments = []
             try:
                 remote = fetch_text(url)
-                converted = convert_content(remote)
+                converted = convert_content(remote, policy=policy)
                 if converted:
                     output.extend(converted)
             except Exception as e:
