@@ -3,6 +3,7 @@ import csv
 import io
 import re
 import shutil
+import ipaddress
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -25,7 +26,10 @@ COMMENT_POLICY_NAMES = {
     "reject", "direct", "proxy"
 }
 
-BAD_VALUE_CHARS = set(" #*/:@\\\t\r\n")
+DOMAIN_RE = re.compile(r"^(?=.{1,253}$)(?!-)(?:[a-z0-9](?:[a-z0-9-_]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]$", re.I)
+HOST_WILDCARD_RE = re.compile(r"^\*\.([a-z0-9](?:[a-z0-9-_]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-_]{0,61}[a-z0-9]$", re.I)
+ASN_RE = re.compile(r"^(?:AS)?(\d+)$", re.I)
+GEOIP_RE = re.compile(r"^[A-Za-z]{2}$")
 
 
 def prepare_dist():
@@ -82,21 +86,14 @@ def strip_trailing_comment(s: str) -> str:
 
     s = re.split(r"\s+#", s, maxsplit=1)[0].strip()
     s = re.split(r"\s+//", s, maxsplit=1)[0].strip()
-    s = re.sub(
-        r",\s*(?:DIRECT|PROXY|REJECT|REJECT-DROP|REJECT-NO-DROP|国内|国外|苹果进阶|微软|测速|规则订阅与OB与GitHub)\s*$",
-        "",
-        s
-    )
     return s.strip()
 
 
 def trim_last_policy_token(rest: str) -> str:
     parts = [p.strip() for p in rest.split(",")]
-    if len(parts) <= 1:
-        return rest.strip()
-    if parts[-1] in COMMENT_POLICY_NAMES:
-        return ",".join(parts[:-1]).strip()
-    return rest.strip()
+    while len(parts) > 1 and parts[-1] in COMMENT_POLICY_NAMES:
+        parts.pop()
+    return ",".join(parts).strip()
 
 
 def parse_payload_yaml_line(line: str):
@@ -113,33 +110,87 @@ def parse_payload_yaml_line(line: str):
     return None
 
 
-def is_ipv6_value(value: str) -> bool:
-    return ":" in value
+def clean_value(v: str) -> str:
+    return v.strip().strip('"').strip("'")
 
 
-def is_valid_domain_value(value: str) -> bool:
-    v = value.strip().lower().lstrip(".")
+def normalize_domain_like(value: str):
+    v = clean_value(value).lstrip(".").rstrip(".").lower()
+    if not v:
+        return None
+    return v
+
+
+def is_valid_domain(value: str) -> bool:
+    v = normalize_domain_like(value)
     if not v:
         return False
-    if any(ch in v for ch in BAD_VALUE_CHARS):
+    if any(x in v for x in (" ", "/", "\\", "@", "#", ",")):
         return False
-    if "." not in v:
+    return bool(DOMAIN_RE.fullmatch(v))
+
+
+def is_valid_host_keyword(value: str) -> bool:
+    v = clean_value(value)
+    if not v:
         return False
-    if v.startswith(".") or v.endswith("."):
+    if any(x in v for x in ("\n", "\r", "#", ",")):
         return False
     return True
 
 
+def is_valid_host_wildcard(value: str) -> bool:
+    v = clean_value(value).lower()
+    if not v or any(x in v for x in (" ", "/", "\\", "@", "#", ",")):
+        return False
+    return bool(HOST_WILDCARD_RE.fullmatch(v))
+
+
+def normalize_asn(value: str):
+    v = clean_value(value).upper()
+    m = ASN_RE.fullmatch(v)
+    if not m:
+        return None
+    return m.group(1)
+
+
+def normalize_geoip(value: str):
+    v = clean_value(value).upper()
+    if GEOIP_RE.fullmatch(v):
+        return v
+    return None
+
+
+def normalize_cidr(value: str):
+    v = clean_value(value)
+    try:
+        net = ipaddress.ip_network(v, strict=False)
+        if net.version == 4:
+            return "ip-cidr", str(net)
+        return "ip6-cidr", str(net)
+    except Exception:
+        return None
+
+
 def normalize_ip_rule(head: str, rest: str, policy: str):
-    value = rest.split(",", 1)[0].strip()
+    value = clean_value(rest.split(",", 1)[0])
     if not value:
         return None
+
     if head in {"ip-cidr6", "ip6-cidr"}:
-        return f"ip6-cidr,{value},{policy}"
+        try:
+            net = ipaddress.IPv6Network(value, strict=False)
+            return f"ip6-cidr,{net},{policy}"
+        except Exception:
+            return None
+
     if head == "ip-cidr":
-        if is_ipv6_value(value):
-            return f"ip6-cidr,{value},{policy}"
-        return f"ip-cidr,{value},{policy}"
+        result = normalize_cidr(value)
+        if not result:
+            return None
+        qx_type, cidr = result
+        return f"{qx_type},{cidr},{policy}"
+
     return None
 
 
@@ -150,23 +201,23 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
 
     payload_item = parse_payload_yaml_line(raw)
     if payload_item is not None:
-        raw = payload_item.strip()
+        raw = payload_item
 
     s = strip_trailing_comment(raw)
     if not s:
         return None
 
     if ref_kind == "DOMAIN-SET" and "," not in s:
-        value = s.lstrip(".").strip()
-        return f"host-suffix,{value},{policy}" if is_valid_domain_value(value) else None
+        value = normalize_domain_like(s)
+        if value and is_valid_domain(value):
+            return f"host-suffix,{value},{policy}"
+        return None
 
     if "," not in s:
         up = s.upper()
-        if ref_kind == "RULE-SET":
-            if re.fullmatch(r"AS\d+", up):
-                return f"ip-asn,{up.removeprefix('AS')},{policy}"
-            if re.fullmatch(r"\d+", up):
-                return f"ip-asn,{up},{policy}"
+        asn = normalize_asn(up)
+        if ref_kind == "RULE-SET" and asn:
+            return f"ip-asn,{asn},{policy}"
         return None
 
     head, rest = s.split(",", 1)
@@ -174,31 +225,46 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
     rest = trim_last_policy_token(rest)
 
     if head in {"domain-suffix", "host-suffix"}:
-        value = rest.split(",", 1)[0].strip().lstrip(".")
-        return f"host-suffix,{value},{policy}" if is_valid_domain_value(value) else None
+        value = normalize_domain_like(rest.split(",", 1)[0])
+        if value and is_valid_domain(value):
+            return f"host-suffix,{value},{policy}"
+        return None
 
     if head in {"domain", "host"}:
-        value = rest.split(",", 1)[0].strip()
-        return f"host,{value},{policy}" if is_valid_domain_value(value) else None
+        value = normalize_domain_like(rest.split(",", 1)[0])
+        if value and is_valid_domain(value):
+            return f"host,{value},{policy}"
+        return None
 
     if head in {"domain-keyword", "host-keyword"}:
-        value = rest.split(",", 1)[0].strip()
-        return f"host-keyword,{value},{policy}" if value and " " not in value else None
+        value = clean_value(rest.split(",", 1)[0])
+        if is_valid_host_keyword(value):
+            return f"host-keyword,{value},{policy}"
+        return None
 
     if head == "host-wildcard":
-        value = rest.split(",", 1)[0].strip()
-        return f"host-wildcard,{value},{policy}" if is_valid_domain_value(value.replace("*", "")) else None
+        value = clean_value(rest.split(",", 1)[0]).lower()
+        if is_valid_host_wildcard(value):
+            return f"host-wildcard,{value},{policy}"
+        return None
 
     if head in {"ip-cidr6", "ip6-cidr", "ip-cidr"}:
         return normalize_ip_rule(head, rest, policy)
 
     if head == "geoip":
-        value = rest.split(",", 1)[0].strip()
-        return f"geoip,{value},{policy}" if value else None
+        value = normalize_geoip(rest.split(",", 1)[0])
+        if value:
+            return f"geoip,{value},{policy}"
+        return None
 
     if head == "ip-asn":
-        value = rest.split(",", 1)[0].strip().upper().removeprefix("AS")
-        return f"ip-asn,{value},{policy}" if value else None
+        value = normalize_asn(rest.split(",", 1)[0])
+        if value:
+            return f"ip-asn,{value},{policy}"
+        return None
+
+    if head in {"process-name", "url-regex", "user-agent", "final", "match"}:
+        return None
 
     return None
 
