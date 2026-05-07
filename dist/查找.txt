@@ -1,0 +1,4 @@
+# 查找
+host,fmfmobile.icloud.com,proxy
+host,fmipmobile.icloud.com,proxy
+host,statici.icloud.com,proxy
