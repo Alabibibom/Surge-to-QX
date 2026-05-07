@@ -2197,6 +2197,8 @@ host-suffix,delhispeedtest.onebroadband.in,测速
 host-suffix,speedtest.igennetworks.in,测速
 host-suffix,stmum.estointernet.in,测速
 host-suffix,sp1.denbroadband.in,测速
+host-suffix,stladhuka.cncbroadband.in,测速
+host-suffix,speedtest.cncbroadband.in,测速
 host-suffix,stest.broadstarnet.in,测速
 host-suffix,speedtest.sgbroadband.in,测速
 host-suffix,sp1.mnetconnect.in,测速
@@ -2295,6 +2297,7 @@ host-suffix,speedtestdelhi.ultranet.co.in,测速
 host-suffix,speedtest.ssnetcom.co.in,测速
 host-suffix,speed.lazygone.co.in,测速
 host-suffix,speedtest.rpworld.co.in,测速
+host-suffix,speedtestjld.netplus.co.in,测速
 host-suffix,speedtestchd.netplus.co.in,测速
 host-suffix,test.geocity.co.in,测速
 host-suffix,speedtest.echonet.co.in,测速
