@@ -1,0 +1,27 @@
+# 拦截 1.统计类，必须drop，避免暴力重试
+host,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe,REJECT-DROP
+host-suffix,undefined,REJECT-DROP
+host-suffix,null,REJECT-DROP
+host-suffix,telemetry.mozilla.org,REJECT-DROP
+host,stats.grafana.org,REJECT-DROP
+host-suffix,getui.net,REJECT-DROP
+host,nom.telemetrydeck.com,REJECT-DROP
+host-suffix,easytomessage.com,REJECT-DROP
+host-suffix,data.grammarly.com,REJECT-DROP
+host,dataflow.biliapi.com,REJECT-DROP
+host-suffix,slackb.com,REJECT-DROP
+host-suffix,gepush.com,REJECT-DROP
+host-suffix,getui.com,REJECT-DROP
+host-suffix,in.applicationinsights.azure.com,REJECT-DROP
+host-suffix,geo2.adobe.com,REJECT-DROP
+host-suffix,tracking.miui.com,REJECT-DROP
+host-suffix,tracking.intl.miui.com,REJECT-DROP
+host-suffix,beacon.qq.com,REJECT-DROP
+host-suffix,trace.qq.com,REJECT-DROP
+host,stat.youpin.mi.com,REJECT-DROP
+host-suffix,f-log-extension.grammarly.io,REJECT-DROP
+host-suffix,f-log-assistant.grammarly.io,REJECT-DROP
+host-suffix,femetrics.grammarly.io,REJECT-DROP
+host-suffix,jpush.io,REJECT-DROP
+host-suffix,femetrics.qagr.io,REJECT-DROP
+host-suffix,jpush.cn,REJECT-DROP
