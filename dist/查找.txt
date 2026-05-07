@@ -1,0 +1,3 @@
+host,fmfmobile.icloud.com,国内
+host,fmipmobile.icloud.com,国内
+host,statici.icloud.com,国内
