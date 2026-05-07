@@ -3,11 +3,11 @@ import csv
 import io
 import re
 import requests
+import shutil
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "sources" / "rules-source.conf"
 DIST = ROOT / "dist"
-DIST.mkdir(exist_ok=True)
 
 UA = {"User-Agent": "Mozilla/5.0"}
 
@@ -24,6 +24,12 @@ COMMENT_POLICY_NAMES = {
     "国内", "国外", "苹果进阶", "微软", "测速", "规则订阅与OB与GitHub",
     "reject", "direct", "proxy"
 }
+
+
+def prepare_dist():
+    if DIST.exists():
+        shutil.rmtree(DIST)
+    DIST.mkdir(parents=True, exist_ok=True)
 
 
 def parse_csv_line(line: str):
@@ -71,13 +77,10 @@ def strip_trailing_comment(s: str) -> str:
     s = s.strip()
     if not s:
         return ""
-
     if " #" in s:
         s = s.split(" #", 1)[0].rstrip()
-
     if " //" in s:
         s = s.split(" //", 1)[0].rstrip()
-
     return s.strip()
 
 
@@ -85,7 +88,6 @@ def trim_last_policy_token(rest: str) -> str:
     parts = [p.strip() for p in rest.split(",")]
     if len(parts) <= 1:
         return rest.strip()
-
     if parts[-1] in COMMENT_POLICY_NAMES:
         return ",".join(parts[:-1]).strip()
     return rest.strip()
@@ -113,15 +115,12 @@ def normalize_ip_rule(head: str, rest: str, policy: str):
     value = rest.split(",", 1)[0].strip()
     if not value:
         return None
-
     if head in {"ip-cidr6", "ip6-cidr"}:
         return f"ip6-cidr,{value},{policy}"
-
     if head == "ip-cidr":
         if is_ipv6_value(value):
             return f"ip6-cidr,{value},{policy}"
         return f"ip-cidr,{value},{policy}"
-
     return None
 
 
@@ -140,9 +139,7 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
 
     if ref_kind == "DOMAIN-SET" and "," not in s:
         value = s.lstrip(".").strip()
-        if value:
-            return f"host-suffix,{value},{policy}"
-        return None
+        return f"host-suffix,{value},{policy}" if value else None
 
     if "," not in s:
         up = s.upper()
@@ -184,7 +181,6 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
         value = rest.split(",", 1)[0].strip().upper().removeprefix("AS")
         return f"ip-asn,{value},{policy}" if value else None
 
-    # 当前直接过滤，避免 QX Invalid Line
     if head in {"process-name", "url-regex", "user-agent", "final", "match"}:
         return None
 
@@ -216,6 +212,8 @@ def merge_unique(lines):
 def main():
     if not SRC.exists():
         raise FileNotFoundError(f"source file not found: {SRC}")
+
+    prepare_dist()
 
     lines = SRC.read_text(encoding="utf-8").splitlines()
     groups = {}
@@ -258,8 +256,7 @@ def main():
             continue
 
         out_path = DIST / f"{sanitize_filename(title)}.txt"
-        content_lines = fail_notes + clean_rules
-        out_path.write_text("\n".join(content_lines).rstrip() + "\n", encoding="utf-8")
+        out_path.write_text("\n".join(fail_notes + clean_rules).rstrip() + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
