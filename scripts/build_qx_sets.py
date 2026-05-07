@@ -25,8 +25,6 @@ KNOWN_POLICY_NAMES = {
     "reject", "direct", "proxy"
 }
 
-COMMENT_PREFIXES = ("#", ";", "//")
-
 
 def parse_csv_line(line: str):
     try:
@@ -73,7 +71,6 @@ def strip_trailing_comment(s: str) -> str:
     s = s.strip()
     if not s:
         return ""
-
     for i, ch in enumerate(s):
         if ch == "#" and (i == 0 or s[i - 1].isspace()):
             return s[:i].rstrip()
@@ -172,17 +169,8 @@ def normalize_qx_rule(line: str, policy="PROXY", ref_kind="RULE-SET"):
         value = rest.split(",", 1)[0].strip().upper().removeprefix("AS")
         return f"ip-asn,{value},{policy}" if value else None
 
-    if head == "process-name":
-        value = rest.split(",", 1)[0].strip()
-        return f"process-name,{value},{policy}" if value else None
-
-    if head == "user-agent":
-        value = rest.split(",", 1)[0].strip()
-        return f"user-agent,{value},{policy}" if value else None
-
-    if head == "url-regex":
-        value = rest.strip()
-        return f"url-regex,{value},{policy}" if value else None
+    if head in {"process-name", "url-regex"}:
+        return None
 
     if head in {"final", "match"}:
         value = rest.split(",", 1)[0].strip() if rest else policy
