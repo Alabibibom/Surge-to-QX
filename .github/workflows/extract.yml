@@ -48,9 +48,6 @@ jobs:
 
       - name: List generated files
         run: |
-          echo "---- workspace ----"
-          ls -la
-          echo "---- dist ----"
           ls -la dist || true
           find dist -type f | sort || true
 
@@ -72,6 +69,5 @@ jobs:
           fi
 
           git commit -m "Update dist"
-
           git pull --rebase origin main
           git push origin main
