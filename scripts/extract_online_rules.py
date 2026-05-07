@@ -1,14 +1,14 @@
 from pathlib import Path
 import csv
 import io
+import re
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "sources" / "rules-source.conf"
 DIST = ROOT / "dist"
-OUT = DIST / "online-qx.conf"
-
 DIST.mkdir(exist_ok=True)
+
 UA = {"User-Agent": "Mozilla/5.0"}
 
 def parse_csv_line(line: str):
@@ -39,6 +39,20 @@ def extract_url(line: str) -> str | None:
     target = fields[1].strip()
     return target if target.startswith(("http://", "https://")) else None
 
+def extract_title_from_comments(comments):
+    for c in comments:
+        t = c.strip()
+        if t.startswith("#"):
+            t = t.lstrip("#").strip()
+            if t:
+                return t
+    return "ruleset"
+
+def sanitize_filename(name: str) -> str:
+    name = re.sub(r'[\\/:*?"<>|]+', "_", name)
+    name = re.sub(r"\s+", "", name)
+    return name[:80] if len(name) > 80 else name
+
 def extract_policy(line: str) -> str:
     fields = parse_csv_line(line)
     if len(fields) < 3:
@@ -59,30 +73,32 @@ def normalize_qx_rule(line: str, default_policy="PROXY"):
         return None
 
     if s.startswith("DOMAIN-SUFFIX,"):
-        return "HOST-SUFFIX," + s.split(",", 1)[1] + f",{default_policy}"
+        return "host-suffix," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith("DOMAIN,"):
-        return "HOST," + s.split(",", 1)[1] + f",{default_policy}"
+        return "host," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith("DOMAIN-KEYWORD,"):
-        return "HOST-KEYWORD," + s.split(",", 1)[1] + f",{default_policy}"
+        return "host-keyword," + s.split(",", 1)[1] + f",{default_policy}"
 
     if s.startswith("IP-CIDR6,"):
-        return "IP6-CIDR," + s.split(",", 1)[1] + f",{default_policy}"
+        return "ip6-cidr," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith("IP-CIDR,"):
-        return "IP-CIDR," + s.split(",", 1)[1] + f",{default_policy}"
+        return "ip-cidr," + s.split(",", 1)[1] + f",{default_policy}"
     if s.startswith("GEOIP,"):
         parts = s.split(",")
         if len(parts) >= 2:
-            return f"GEOIP,{parts[1]},{default_policy}"
+            return f"geoip,{parts[1].strip()},{default_policy}"
 
     if s.startswith(("USER-AGENT,", "URL-REGEX,", "PROCESS-NAME,")):
-        return s + f",{default_policy}"
+        return s.lower() + f",{default_policy}"
 
-    if s.startswith(("HOST-SUFFIX,", "HOST,", "HOST-KEYWORD,")):
-        if s.count(",") >= 2:
-            return s.rsplit(",", 1)[0] + f",{default_policy}"
+    if s.startswith(("host-suffix,", "host,", "host-keyword,", "ip-cidr,", "ip6-cidr,", "geoip,", "user-agent,", "url-regex,", "process-name,")):
+        parts = s.split(",")
+        if len(parts) >= 2:
+            base = ",".join(parts[:-1]).lower()
+            return f"{base},{default_policy}"
 
     if s.startswith(("FINAL,", "MATCH,")):
-        return s
+        return s.lower()
 
     return None
 
@@ -96,12 +112,20 @@ def convert_remote_rules(text: str, policy="PROXY"):
             out.append(conv)
     return out
 
-def main():
-    src_lines = SRC.read_text(encoding="utf-8").splitlines()
-    output = []
-    pending_comments = []
+def flush_set(title, rules):
+    if not title:
+        return
+    path = DIST / f"{sanitize_filename(title)}.txt"
+    path.write_text("\n".join(rules).rstrip() + "\n", encoding="utf-8")
 
-    for raw in src_lines:
+def main():
+    lines = SRC.read_text(encoding="utf-8").splitlines()
+
+    pending_comments = []
+    current_title = None
+    current_rules = []
+
+    for raw in lines:
         line = raw.rstrip()
 
         if is_blank(line):
@@ -114,28 +138,27 @@ def main():
             continue
 
         if is_online_ref(line):
+            if current_title and current_rules:
+                flush_set(current_title, current_rules)
+
             url = extract_url(line)
             policy = extract_policy(line)
-            if pending_comments:
-                if output and output[-1] != "":
-                    output.append("")
-                output.extend(pending_comments)
+            title = extract_title_from_comments(pending_comments)
+            current_title = title
+            current_rules = list(pending_comments)
             pending_comments = []
+
             try:
                 remote = fetch_text(url)
-                converted = convert_remote_rules(remote, policy=policy)
-                if converted:
-                    output.extend(converted)
+                current_rules.extend(convert_remote_rules(remote, policy=policy))
             except Exception as e:
-                output.append(f"# fetch failed: {url} ({e})")
-        else:
-            pending_comments = []
+                current_rules.append(f"# fetch failed: {url} ({e})")
+            continue
 
-    while output and output[-1] == "":
-        output.pop()
+        pending_comments = []
 
-    OUT.write_text("\n".join(output) + "\n", encoding="utf-8")
-    print(f"generated: {OUT}")
+    if current_title and current_rules:
+        flush_set(current_title, current_rules)
 
 if __name__ == "__main__":
     main()
