@@ -2299,6 +2299,7 @@ host-suffix,speed.lazygone.co.in,测速
 host-suffix,speedtest.rpworld.co.in,测速
 host-suffix,speedtestjld.netplus.co.in,测速
 host-suffix,speedtestchd.netplus.co.in,测速
+host-suffix,speedtest.netplus.co.in,测速
 host-suffix,test.geocity.co.in,测速
 host-suffix,speedtest.echonet.co.in,测速
 host-suffix,speedtestmum.citynet.co.in,测速

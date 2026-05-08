@@ -1458,7 +1458,6 @@ host-suffix,076650.com,国内
 host-suffix,07666.com,国内
 host-suffix,0768000.com,国内
 host-suffix,0769che.com,国内
-host-suffix,0769king.xin,国内
 host-suffix,0769net.com,国内
 host-suffix,0769pf.com,国内
 host-suffix,0769sun.com,国内
@@ -4335,7 +4334,6 @@ host-suffix,31668.com,国内
 host-suffix,316watches.com,国内
 host-suffix,3171688.com,国内
 host-suffix,317608.com,国内
-host-suffix,31793.com,国内
 host-suffix,317hu.com,国内
 host-suffix,318595.xyz,国内
 host-suffix,3188.la,国内
@@ -8854,7 +8852,6 @@ host-suffix,7moor-fs1.com,国内
 host-suffix,7moor-fs2.com,国内
 host-suffix,7moor-zx.com,国内
 host-suffix,7moor.com,国内
-host-suffix,7msj.com,国内
 host-suffix,7mx.com,国内
 host-suffix,7mz3a.com,国内
 host-suffix,7nepal.com,国内
@@ -8959,6 +8956,7 @@ host-suffix,800mei.net,国内
 host-suffix,800pharm.com,国内
 host-suffix,800tuan.com,国内
 host-suffix,800tzw.com,国内
+host-suffix,800vdc.com,国内
 host-suffix,800vod.com,国内
 host-suffix,800wen.com,国内
 host-suffix,800xiaoshuo.com,国内
@@ -10554,7 +10552,6 @@ host-suffix,9dfx.com,国内
 host-suffix,9dian.info,国内
 host-suffix,9dida.net,国内
 host-suffix,9dinn.com,国内
-host-suffix,9douyu.com,国内
 host-suffix,9droom.com,国内
 host-suffix,9duw.com,国内
 host-suffix,9dwork.com,国内
@@ -18341,7 +18338,6 @@ host-suffix,bokesoftware.com,国内
 host-suffix,bokexia.com,国内
 host-suffix,bokeyz.com,国内
 host-suffix,boktour.com,国内
-host-suffix,bokunwatch.com,国内
 host-suffix,bolaa.com,国内
 host-suffix,bolan.net,国内
 host-suffix,bolaninfo.com,国内
@@ -24132,7 +24128,6 @@ host-suffix,ciyun.link,国内
 host-suffix,ciyynodegroup.cyou,国内
 host-suffix,cizip.com,国内
 host-suffix,cj0515.com,国内
-host-suffix,cj120.com,国内
 host-suffix,cj5bs.com,国内
 host-suffix,cj5bs.net,国内
 host-suffix,cj8.ren,国内
@@ -25863,7 +25858,6 @@ host-suffix,coding-pages.com,国内
 host-suffix,coding.love,国内
 host-suffix,coding.me,国内
 host-suffix,coding.net,国内
-host-suffix,coding3min.com,国内
 host-suffix,codingapp.com,国内
 host-suffix,codingchangeworld.com,国内
 host-suffix,codingcorp.net,国内
@@ -33629,7 +33623,6 @@ host-suffix,ejoy365.com,国内
 host-suffix,ejoy365hk.com,国内
 host-suffix,ejrfood.com,国内
 host-suffix,ejsoon.win,国内
-host-suffix,ejtieyi.com,国内
 host-suffix,ejtsyc.com,国内
 host-suffix,eju.com,国内
 host-suffix,ejuhome.com,国内
@@ -66511,7 +66504,6 @@ host-suffix,mayiw.com,国内
 host-suffix,mayiwenku.com,国内
 host-suffix,mayiwsk.com,国内
 host-suffix,mayiyx.com,国内
-host-suffix,mayizhuanlan.com,国内
 host-suffix,maylandresort.com,国内
 host-suffix,maylove2333.com,国内
 host-suffix,mayora-sh.com,国内
@@ -68286,6 +68278,7 @@ host-suffix,mmbang.info,国内
 host-suffix,mmbang.net,国内
 host-suffix,mmbao.com,国内
 host-suffix,mmbest.com,国内
+host-suffix,mmbizgo.com,国内
 host-suffix,mmbjq.com,国内
 host-suffix,mmbread.com,国内
 host-suffix,mmc-data.com,国内
@@ -85559,7 +85552,6 @@ host-suffix,sjzgxwl.com,国内
 host-suffix,sjzhr.com,国内
 host-suffix,sjzhushou.com,国内
 host-suffix,sjzjifeng.com,国内
-host-suffix,sjzjinliulin.com,国内
 host-suffix,sjzjkqgs.com,国内
 host-suffix,sjzjtjt.com,国内
 host-suffix,sjzkz.com,国内
@@ -92538,7 +92530,6 @@ host-suffix,tourenwang.com,国内
 host-suffix,tourgansu.com,国内
 host-suffix,tourhr.com,国内
 host-suffix,tourjob.net,国内
-host-suffix,tourongjia.com,国内
 host-suffix,tourongzi.org,国内
 host-suffix,toursbms.com,国内
 host-suffix,tourscool.com,国内
@@ -99265,7 +99256,6 @@ host-suffix,wouju.com,国内
 host-suffix,wouu.net,国内
 host-suffix,wow.fun,国内
 host-suffix,wowamazingthings.com,国内
-host-suffix,wowbbs.com,国内
 host-suffix,wowcat.net,国内
 host-suffix,wowchina.com,国内
 host-suffix,wowenda.com,国内
@@ -104580,7 +104570,6 @@ host-suffix,xyz1412.net,国内
 host-suffix,xyzcdn.net,国内
 host-suffix,xyzcn.com,国内
 host-suffix,xyzdict.com,国内
-host-suffix,xyzdns.xyz,国内
 host-suffix,xyzele.com,国内
 host-suffix,xyzfm.link,国内
 host-suffix,xyzfm.space,国内
