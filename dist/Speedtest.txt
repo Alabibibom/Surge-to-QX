@@ -1968,6 +1968,7 @@ host-suffix,speedtest2.sox.rs,测速
 host-suffix,nl.itdatatelecom.ro,测速
 host-suffix,speedtest.byteshield.ro,测速
 host-suffix,speed.uk.lon.m247.ro,测速
+host-suffix,jp.speedtest.bug.pw,测速
 host-suffix,smtest.supermedia.pl,测速
 host-suffix,speed2.fiberlink.pl,测速
 host-suffix,war-o1.speedtest.orange.pl,测速
@@ -2218,6 +2219,7 @@ host-suffix,bom.speedtest.hybridmail.in,测速
 host-suffix,speedtest.csfibernet.in,测速
 host-suffix,speedtestmumbai.chatsignal.in,测速
 host-suffix,sp.atcinfocom.in,测速
+host-suffix,ns1.anlnetwork.in,测速
 host-suffix,speedtest.willaegis.in,测速
 host-suffix,ookla.speedking.in,测速
 host-suffix,guwahati.neconnect.in,测速

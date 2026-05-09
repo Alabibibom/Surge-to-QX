@@ -15,3 +15,4 @@ host-suffix,apple.com,苹果进阶
 host-suffix,me.com,苹果进阶
 host-suffix,appsto.re,苹果进阶
 host-suffix,apple.co,苹果进阶
+ip-cidr,17.0.0.0/8,苹果进阶
