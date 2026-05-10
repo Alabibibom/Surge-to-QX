@@ -260,6 +260,7 @@ host-suffix,sprk1.radiokable.net,测速
 host-suffix,speedtest4.plateautel.net,测速
 host-suffix,speedtest.ontarionet.net,测速
 host-suffix,wybo-speedtest.northstate.net,测速
+host-suffix,asbn-speedtest.northstate.net,测速
 host-suffix,speedtest.vienna.nodescrape.net,测速
 host-suffix,speedtest.netcalibre.net,测速
 host-suffix,speedtest.correggio.netandwork.net,测速

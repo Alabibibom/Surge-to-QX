@@ -5,6 +5,7 @@ host-suffix,prod-support.apple-support.akadns.net,国内
 host-suffix,images.apple.com.edgekey.net.globalredir.akadns.net,国内
 host-suffix,store.apple.com.edgekey.net.globalredir.akadns.net,国内
 host-suffix,www.apple.com.edgekey.net.globalredir.akadns.net,国内
+host-suffix,cl2.apple.com.edgekey.net.globalredir.akadns.net,国内
 host-suffix,gsp4-cn.ls.apple.com.edgekey.net.globalredir.akadns.net,国内
 host-suffix,iphone-ld.origin-apple.com.akadns.net,国内
 host-suffix,cl5-cdn.origin-apple.com.akadns.net,国内
@@ -19,10 +20,8 @@ host-suffix,init-s01st-lb.push-apple.com.akadns.net,国内
 host-suffix,init-p01st-lb.push-apple.com.akadns.net,国内
 host-suffix,init-p01md-lb.push-apple.com.akadns.net,国内
 host-suffix,updates-http.cdn-apple.com.akadns.net,国内
-host-suffix,pancake.cdn-apple.com.akadns.net,国内
 host-suffix,gspe19-2-cn-ssl.ls-apple.com.akadns.net,国内
 host-suffix,gspe19-cn.ls-apple.com.akadns.net,国内
-host-suffix,icloud-cdn.icloud.com.akadns.net,国内
 host-suffix,stocks-sparkline-lb.apple.com.akadns.net,国内
 host-suffix,swcatalog-cdn.apple.com.akadns.net,国内
 host-suffix,configuration.apple.com.akadns.net,国内
@@ -32,9 +31,7 @@ host-suffix,adcdownload.apple.com.akadns.net,国内
 host-suffix,swscan-cdn.apple.com.akadns.net,国内
 host-suffix,mesu-china.apple.com.akadns.net,国内
 host-suffix,clientflow.apple.com.akadns.net,国内
-host-suffix,ocsp2-lb.apple.com.akadns.net,国内
 host-suffix,mesu-cdn.apple.com.akadns.net,国内
-host-suffix,ocsp-lb.apple.com.akadns.net,国内
 host-suffix,swdist.apple.com.akadns.net,国内
 host-suffix,cds.apple.com.akadns.net,国内
 host-suffix,cdn-cn4.apple-mapkit.com,国内
@@ -53,7 +50,6 @@ host-suffix,publicassets.cdn-apple.com,国内
 host-suffix,store.storeimages.cdn-apple.com,国内
 host-suffix,updates.cdn-apple.com,国内
 host-suffix,appleid.cdn-apple.com,国内
-host-suffix,icloud.cdn-apple.com,国内
 host-suffix,cstat.cdn-apple.com,国内
 host-suffix,ml.cdn-apple.com,国内
 host-suffix,is5-ssl.mzstatic.com,国内
@@ -86,7 +82,6 @@ host-suffix,smp-device-content.apple.com,国内
 host-suffix,sh-pod2-smp-device.apple.com,国内
 host-suffix,stocks-sparkline.apple.com,国内
 host-suffix,devstreaming-cdn.apple.com,国内
-host-suffix,reserve-prime.apple.com,国内
 host-suffix,itunesconnect.apple.com,国内
 host-suffix,devimages-cdn.apple.com,国内
 host-suffix,configuration.apple.com,国内
@@ -134,8 +129,6 @@ host-suffix,seed-swallow.siri.apple.com,国内
 host-suffix,seed-sequoia.siri.apple.com,国内
 host-suffix,probe.siri.apple.com,国内
 host-suffix,seed.siri.apple.com,国内
-host-suffix,init-s01st.push.apple.com,国内
-host-suffix,init-p01st.push.apple.com,国内
 host-suffix,pba0.apple.com,国内
 host-suffix,ocsp.apple.com,国内
 host-suffix,mesu.apple.com,国内
@@ -159,6 +152,7 @@ host-suffix,gspe21-ssl.ls.apple.com,国内
 host-suffix,gspe19-cn.ls.apple.com,国内
 host-suffix,gsp13-cn.ls.apple.com,国内
 host-suffix,gsp12-cn.ls.apple.com,国内
+host-suffix,gsp11-cn.ls.apple.com,国内
 host-suffix,gsp5-cn.ls.apple.com,国内
 host-suffix,gsp4-cn.ls.apple.com,国内
 host-suffix,static.gc.apple.com,国内

@@ -22,7 +22,6 @@ host-suffix,collaborateppe.download.prss.microsoft.com,国内
 host-suffix,dreamsparkuat.download.prss.microsoft.com,国内
 host-suffix,azurestackhub.download.prss.microsoft.com,国内
 host-suffix,officemktuat.download.prss.microsoft.com,国内
-host-suffix,msproductuat.download.prss.microsoft.com,国内
 host-suffix,itacademyuat.download.prss.microsoft.com,国内
 host-suffix,azuremigrate.download.prss.microsoft.com,国内
 host-suffix,mpnbenefits.download.prss.microsoft.com,国内
@@ -38,11 +37,9 @@ host-suffix,vlportal.download.prss.microsoft.com,国内
 host-suffix,software.download.prss.microsoft.com,国内
 host-suffix,cbdstest.download.prss.microsoft.com,国内
 host-suffix,surface.download.prss.microsoft.com,国内
-host-suffix,myvsuat.download.prss.microsoft.com,国内
 host-suffix,windbg.download.prss.microsoft.com,国内
 host-suffix,vscode.download.prss.microsoft.com,国内
 host-suffix,oemsoc.download.prss.microsoft.com,国内
-host-suffix,mbsuat.download.prss.microsoft.com,国内
 host-suffix,lexuat.download.prss.microsoft.com,国内
 host-suffix,volic.download.prss.microsoft.com,国内
 host-suffix,myvs.download.prss.microsoft.com,国内
@@ -52,7 +49,6 @@ host-suffix,mbs.download.prss.microsoft.com,国内
 host-suffix,lex.download.prss.microsoft.com,国内
 host-suffix,vz.download.prss.microsoft.com,国内
 host-suffix,wscont2.apps.microsoft.com,国内
-host-suffix,wscont1.apps.microsoft.com,国内
 host-suffix,sdx.microsoft.com,国内
 host-suffix,dl.delivery.mp.microsoft.com,国内
 host-suffix,storeedgefd.dsx.mp.microsoft.com,国内
