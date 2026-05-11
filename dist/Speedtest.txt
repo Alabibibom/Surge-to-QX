@@ -261,6 +261,8 @@ host-suffix,speedtest4.plateautel.net,测速
 host-suffix,speedtest.ontarionet.net,测速
 host-suffix,wybo-speedtest.northstate.net,测速
 host-suffix,asbn-speedtest.northstate.net,测速
+host-suffix,mia-speedtest.northstate.net,测速
+host-suffix,atl-speedtest.northstate.net,测速
 host-suffix,speedtest.vienna.nodescrape.net,测速
 host-suffix,speedtest.netcalibre.net,测速
 host-suffix,speedtest.correggio.netandwork.net,测速
@@ -906,6 +908,7 @@ host-suffix,sipl.speedtest.sukaininfoway.com,测速
 host-suffix,speedtest.squirrellogic.com,测速
 host-suffix,speedtest.skybbservices.com,测速
 host-suffix,speedtest.skaybroadband.com,测速
+host-suffix,speedtest.sahinotomotiv.com,测速
 host-suffix,speedtest.rochestercolo.com,测速
 host-suffix,mumbaispeedtest.pioneeronline.com,测速
 host-suffix,speedtestmera.vs.mythic-beasts.com,测速
@@ -1355,6 +1358,7 @@ host-suffix,speedtest.infinirc.com,测速
 host-suffix,speed.inet-isp.com,测速
 host-suffix,tr.hostligo.com,测速
 host-suffix,speedtest.hostimux.com,测速
+host-suffix,speedtest.hlinknet.com,测速
 host-suffix,speedtest10.haashnet.com,测速
 host-suffix,speedtest-miami.grupogtd.com,测速
 host-suffix,speedtest.us.grupogtd.com,测速
@@ -2504,6 +2508,7 @@ host-suffix,speedtest.fra.plusnet.de,测速
 host-suffix,speedtest.dus.plusnet.de,测速
 host-suffix,speedtest02.htp-tel.de,测速
 host-suffix,speedtest01.dns-net.de,测速
+host-suffix,ookla.dns-net.de,测速
 host-suffix,a400.speedtest.wobcom.de,测速
 host-suffix,speedtest.plutex.de,测速
 host-suffix,dus.speedtest.komdsl.de,测速

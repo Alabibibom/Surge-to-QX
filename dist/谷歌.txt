@@ -196,7 +196,6 @@ host-suffix,digitalattackmap.com,国外
 host-suffix,doubleclick-cn.net,国外
 host-suffix,doubleclick.com,国外
 host-suffix,doubleclick.net,国外
-host-suffix,download.qatp1.net,国外
 host-suffix,episodic.com,国外
 host-suffix,fastlane.ci,国外
 host-suffix,fastlane.tools,国外
@@ -543,7 +542,6 @@ host-suffix,mdialog.com,国外
 host-suffix,meet.new,国外
 host-suffix,mfg-inspector.com,国外
 host-suffix,mobileview.page,国外
-host-suffix,monitoring.qpdp1.net,国外
 host-suffix,moodstocks.com,国外
 host-suffix,near.by,国外
 host-suffix,nest.com,国外
@@ -587,12 +585,8 @@ host-suffix,prod.databe.floonet.goog,国外
 host-suffix,projectara.com,国外
 host-suffix,projectbaseline.com,国外
 host-suffix,publishproxy.com,国外
-host-suffix,qagpublic.qatp1.net,国外
-host-suffix,qgadmin.qcpp1.net,国外
 host-suffix,qiao-cn.com,国外
 host-suffix,qpx.googleflights.net,国外
-host-suffix,qualysapi.qatp1.net,国外
-host-suffix,qualysguard.qpdp1.net,国外
 host-suffix,questvisual.com,国外
 host-suffix,quickoffice.com,国外
 host-suffix,quiksee.com,国外
@@ -609,7 +603,6 @@ host-suffix,ridepenguin.com,国外
 host-suffix,run.app,国外
 host-suffix,savethedate.foo,国外
 host-suffix,saynow.com,国外
-host-suffix,scanservice1.qcpp1.net,国外
 host-suffix,schema.org,国外
 host-suffix,schemer.com,国外
 host-suffix,screenwisetrends.com,国外
