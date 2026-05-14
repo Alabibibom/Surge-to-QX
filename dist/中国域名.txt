@@ -2227,10 +2227,8 @@ host-suffix,120ask.com,国内
 host-suffix,120askimages.com,国内
 host-suffix,120bid.com,国内
 host-suffix,120btc.com,国内
-host-suffix,120cihui.com,国内
 host-suffix,120fd.com,国内
 host-suffix,120it.com,国内
-host-suffix,120jg.com,国内
 host-suffix,120jhccz.com,国内
 host-suffix,120jinyi.com,国内
 host-suffix,120jxxh.com,国内
@@ -9105,7 +9103,6 @@ host-suffix,84ke.com,国内
 host-suffix,84ktv.com,国内
 host-suffix,84ny.com,国内
 host-suffix,84zcb.com,国内
-host-suffix,850088.com,国内
 host-suffix,850718.xyz,国内
 host-suffix,85229666.com,国内
 host-suffix,85253000.com,国内
@@ -12209,7 +12206,6 @@ host-suffix,aiykj.com,国内
 host-suffix,aiyo99.com,国内
 host-suffix,aiyong.work,国内
 host-suffix,aiyongaiwan.com,国内
-host-suffix,aiyou.com,国内
 host-suffix,aiyoumi.com,国内
 host-suffix,aiyouxi.com,国内
 host-suffix,aiyouzj.com,国内
@@ -12461,7 +12457,6 @@ host-suffix,alijk.com,国内
 host-suffix,alikunlun.com,国内
 host-suffix,alikunlun.net,国内
 host-suffix,alili.tech,国内
-host-suffix,aliliying.com,国内
 host-suffix,aliloan.com,国内
 host-suffix,aliluya.com,国内
 host-suffix,alimama.com,国内
@@ -17435,7 +17430,6 @@ host-suffix,bjjbls.com,国内
 host-suffix,bjjchf.com,国内
 host-suffix,bjjdwx.com,国内
 host-suffix,bjjfsd.com,国内
-host-suffix,bjjgyy.com,国内
 host-suffix,bjjhhft.com,国内
 host-suffix,bjjhhn.com,国内
 host-suffix,bjjhsw.com,国内
@@ -20640,7 +20634,6 @@ host-suffix,cdn-cba.com,国内
 host-suffix,cdn-cdn.net,国内
 host-suffix,cdn-gw-dv.net,国内
 host-suffix,cdn-gw-dv.vip,国内
-host-suffix,cdn-hotels.com,国内
 host-suffix,cdn-speed.com,国内
 host-suffix,cdn-static.farfetch-contents.com,国内
 host-suffix,cdn-uc.cc,国内
@@ -25373,7 +25366,6 @@ host-suffix,cnshzm.com,国内
 host-suffix,cnside.com,国内
 host-suffix,cnsihai.com,国内
 host-suffix,cnsikao.com,国内
-host-suffix,cnsilkworm.com,国内
 host-suffix,cnsimeng.com,国内
 host-suffix,cnsimin.com,国内
 host-suffix,cnsiwu.com,国内
@@ -30995,7 +30987,6 @@ host-suffix,domilight.com,国内
 host-suffix,domob-inc.com,国内
 host-suffix,domobcdn.com,国内
 host-suffix,domor.net,国内
-host-suffix,domp4.cc,国内
 host-suffix,domp4.net,国内
 host-suffix,dondonwenda.com,国内
 host-suffix,done-home.com,国内
@@ -35633,7 +35624,6 @@ host-suffix,fenghaibin.com,国内
 host-suffix,fenghenever.com,国内
 host-suffix,fenghong.tech,国内
 host-suffix,fenghua001.com,国内
-host-suffix,fenghuangcanyin.com,国内
 host-suffix,fenghuangxs.com,国内
 host-suffix,fenghui-motor.com,国内
 host-suffix,fenghuidongman.com,国内
@@ -39523,7 +39513,6 @@ host-suffix,glb4.com,国内
 host-suffix,glb6.com,国内
 host-suffix,glbaishen.com,国内
 host-suffix,glbdns.com,国内
-host-suffix,glblkq.com,国内
 host-suffix,glby118.com,国内
 host-suffix,glbyhotel.com,国内
 host-suffix,glbyjdjt.com,国内
@@ -40673,7 +40662,6 @@ host-suffix,gsxetc.com,国内
 host-suffix,gsxgw.com,国内
 host-suffix,gsxservice.com,国内
 host-suffix,gsxtj.com,国内
-host-suffix,gsyc.icu,国内
 host-suffix,gsydxzyy.com,国内
 host-suffix,gsysportwear.com,国内
 host-suffix,gsyth.com,国内
@@ -44882,7 +44870,6 @@ host-suffix,haoshuo.com,国内
 host-suffix,haoshuyou.net,国内
 host-suffix,haoshuyun.com,国内
 host-suffix,haositone.com,国内
-host-suffix,haosix.com,国内
 host-suffix,haoso.com,国内
 host-suffix,haosou.com,国内
 host-suffix,haosou.net,国内
@@ -53603,7 +53590,6 @@ host-suffix,iwatertech.com,国内
 host-suffix,iway-tech.com,国内
 host-suffix,iwebad.com,国内
 host-suffix,iwebchoice.com,国内
-host-suffix,iwecan.net,国内
 host-suffix,iweek.ly,国内
 host-suffix,iweekapi.com,国内
 host-suffix,iweidu.net,国内
@@ -56902,7 +56888,6 @@ host-suffix,jrs-live-football.com,国内
 host-suffix,jrs-live-score.com,国内
 host-suffix,jrs-live-z.com,国内
 host-suffix,jrs-watch-live.com,国内
-host-suffix,jrs-yc-hupu.com,国内
 host-suffix,jrss.com,国内
 host-suffix,jrszw.com,国内
 host-suffix,jrteck.com,国内
@@ -58896,7 +58881,6 @@ host-suffix,kaolafm.com,国内
 host-suffix,kaolafm.net,国内
 host-suffix,kaom.net,国内
 host-suffix,kaomeiyuan.com,国内
-host-suffix,kaonaw.com,国内
 host-suffix,kaonenyi.com,国内
 host-suffix,kaopu001.com,国内
 host-suffix,kaopubao.com,国内
@@ -59387,7 +59371,6 @@ host-suffix,kfmanager.com,国内
 host-suffix,kfqizhongji.com,国内
 host-suffix,kfsddj.com,国内
 host-suffix,kfskxy.com,国内
-host-suffix,kfvcca.com,国内
 host-suffix,kfw001.com,国内
 host-suffix,kfzdh.com,国内
 host-suffix,kfzhinan.com,国内
@@ -60536,7 +60519,6 @@ host-suffix,kumiao.com,国内
 host-suffix,kumiao.vip,国内
 host-suffix,kumifeng.com,国内
 host-suffix,kun-pharm.com,国内
-host-suffix,kun66.xyz,国内
 host-suffix,kunchuang.com,国内
 host-suffix,kunduo.com,国内
 host-suffix,kungfucloud.com,国内
@@ -63797,7 +63779,6 @@ host-suffix,longjoy.net,国内
 host-suffix,longjunjiayuan.com,国内
 host-suffix,longk.com,国内
 host-suffix,longkui.site,国内
-host-suffix,longkunjituan.com,国内
 host-suffix,longkuntech.com,国内
 host-suffix,longlijituan.com,国内
 host-suffix,longlingas.com,国内
@@ -65461,7 +65442,6 @@ host-suffix,maimaimaiw.com,国内
 host-suffix,maimemo.com,国内
 host-suffix,maimemostatus.com,国内
 host-suffix,maimiaotech.com,国内
-host-suffix,mainaffyn-dev.com,国内
 host-suffix,maindown4399.com,国内
 host-suffix,maine1688.com,国内
 host-suffix,mainlandip.com,国内
@@ -68297,7 +68277,6 @@ host-suffix,motuo2.com,国内
 host-suffix,mou.ge,国内
 host-suffix,mou.ren,国内
 host-suffix,mouldbbs.com,国内
-host-suffix,mouldnews.com,国内
 host-suffix,moulem.com,国内
 host-suffix,moumi.com,国内
 host-suffix,mounriver.com,国内
@@ -72031,7 +72010,6 @@ host-suffix,nyhnx.com,国内
 host-suffix,nyhpyq.com,国内
 host-suffix,nyjy-china.com,国内
 host-suffix,nylingshang.com,国内
-host-suffix,nync.com,国内
 host-suffix,nypd520.com,国内
 host-suffix,nyrmyy.com,国内
 host-suffix,nysenba.com,国内
@@ -72809,7 +72787,6 @@ host-suffix,opus-gaming.com,国内
 host-suffix,opwill.com,国内
 host-suffix,opython.com,国内
 host-suffix,oqss.com,国内
-host-suffix,oqwizd.com,国内
 host-suffix,or-sun.com,国内
 host-suffix,oraev.com,国内
 host-suffix,orafl.com,国内
@@ -74798,7 +74775,6 @@ host-suffix,popkx.com,国内
 host-suffix,poploli.com,国内
 host-suffix,popmart.com,国内
 host-suffix,popmartfans.cc,国内
-host-suffix,popmtstyle.com,国内
 host-suffix,popoffices.com,国内
 host-suffix,popoho.com,国内
 host-suffix,popoim.com,国内
@@ -87163,7 +87139,6 @@ host-suffix,supernode.pro,国内
 host-suffix,superpb.com,国内
 host-suffix,superpowercn.com,国内
 host-suffix,superqq.com,国内
-host-suffix,superrrai77.com,国内
 host-suffix,supers.ltd,国内
 host-suffix,supersharket.com,国内
 host-suffix,supersocket.net,国内
@@ -91884,7 +91859,6 @@ host-suffix,touwenzi.com,国内
 host-suffix,touwho.com,国内
 host-suffix,touxiang8.com,国内
 host-suffix,touxiang88.com,国内
-host-suffix,touxiangkong.com,国内
 host-suffix,touying.com,国内
 host-suffix,touzhijia.com,国内
 host-suffix,touzi.com,国内
@@ -94316,7 +94290,6 @@ host-suffix,vandream.com,国内
 host-suffix,vanform.com,国内
 host-suffix,vangelinu.com,国内
 host-suffix,vangotech.com,国内
-host-suffix,vanguardstars.com,国内
 host-suffix,vanjee.net,国内
 host-suffix,vanjoin.com,国内
 host-suffix,vankang.com,国内
@@ -96001,7 +95974,6 @@ host-suffix,wasu.tv,国内
 host-suffix,wasucnc.com,国内
 host-suffix,watch-space.com,国内
 host-suffix,watch-top.net,国内
-host-suffix,watch1905.com,国内
 host-suffix,watch4s.com,国内
 host-suffix,watchadmin.com,国内
 host-suffix,watchdios.com,国内
@@ -99189,7 +99161,6 @@ host-suffix,www.nike.com,国内
 host-suffix,www.redhat.com,国内
 host-suffix,www.samsung.com,国内
 host-suffix,www.st.com,国内
-host-suffix,www.uz0.xyz,国内
 host-suffix,www.vive.com,国内
 host-suffix,www.viveport.com,国内
 host-suffix,www.volvocars.com,国内
@@ -100751,7 +100722,6 @@ host-suffix,xiaohuazhuo.com,国内
 host-suffix,xiaohucloud.com,国内
 host-suffix,xiaohufev.com,国内
 host-suffix,xiaohulu.com,国内
-host-suffix,xiaohun.net,国内
 host-suffix,xiaohuochai.cc,国内
 host-suffix,xiaohuochai.site,国内
 host-suffix,xiaohuohu.com,国内
@@ -105512,7 +105482,6 @@ host-suffix,yinduchina.com,国内
 host-suffix,yindudigital.com,国内
 host-suffix,yindui.net,国内
 host-suffix,yindunjituan.com,国内
-host-suffix,yinduzx.com,国内
 host-suffix,yineitong.com,国内
 host-suffix,yinengjituan.net,国内
 host-suffix,yinengkt.com,国内
@@ -106745,7 +106714,6 @@ host-suffix,youfangzx.com,国内
 host-suffix,youfanx.com,国内
 host-suffix,youfengbio.com,国内
 host-suffix,youfubao.vip,国内
-host-suffix,youfujc.com,国内
 host-suffix,youfunlab.com,国内
 host-suffix,youfutongxinag.org,国内
 host-suffix,youfuyoucai.com,国内
@@ -108088,7 +108056,6 @@ host-suffix,yunnan.vip,国内
 host-suffix,yunnancoffee.org,国内
 host-suffix,yunnandns.com,国内
 host-suffix,yunnanjun.com,国内
-host-suffix,yunnanlong.com,国内
 host-suffix,yunnanuu.com,国内
 host-suffix,yunnao.com,国内
 host-suffix,yunneidongli.com,国内
@@ -109939,7 +109906,6 @@ host-suffix,zhangkai.red,国内
 host-suffix,zhangkc.com,国内
 host-suffix,zhangketong.com,国内
 host-suffix,zhangkongapp.com,国内
-host-suffix,zhangku.com,国内
 host-suffix,zhangle.com,国内
 host-suffix,zhangleglobal.com,国内
 host-suffix,zhanglinfeng09.com,国内
@@ -111160,7 +111126,6 @@ host-suffix,zhubiaoju.com,国内
 host-suffix,zhubo123.com,国内
 host-suffix,zhuboqiang.com,国内
 host-suffix,zhuceshenzhengongsi.com,国内
-host-suffix,zhuceyou.com,国内
 host-suffix,zhuchao.cc,国内
 host-suffix,zhucheng.com,国内
 host-suffix,zhuchengdc.com,国内

@@ -51,4 +51,3 @@ host-suffix,vz.download.prss.microsoft.com,国内
 host-suffix,sdx.microsoft.com,国内
 host-suffix,dl.delivery.mp.microsoft.com,国内
 host-suffix,storeedgefd.dsx.mp.microsoft.com,国内
-host-suffix,fs.microsoft.com,国内

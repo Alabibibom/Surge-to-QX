@@ -44,6 +44,7 @@ ip-cidr,222.186.61.96/31,reject
 ip-cidr,0.0.0.0/24,reject
 ip-cidr,1.0.218.230/32,reject
 ip-cidr,2.87.160.7/32,reject
+ip-cidr,3.33.130.190/32,reject
 ip-cidr,3.216.243.46/32,reject
 ip-cidr,3.220.51.12/32,reject
 ip-cidr,3.226.8.132/32,reject
@@ -61,6 +62,7 @@ ip-cidr,15.197.244.48/32,reject
 ip-cidr,18.142.131.147/32,reject
 ip-cidr,18.202.86.139/32,reject
 ip-cidr,23.22.126.183/32,reject
+ip-cidr,23.48.203.140/32,reject
 ip-cidr,23.81.64.183/32,reject
 ip-cidr,23.82.169.37/32,reject
 ip-cidr,23.82.169.38/31,reject

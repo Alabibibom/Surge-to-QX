@@ -317,6 +317,7 @@ host-suffix,speedtest.bluevalley.net,测速
 host-suffix,speedtest-ns.bellaliant.net,测速
 host-suffix,speedtest-nl.bellaliant.net,测速
 host-suffix,speedtest.bellaliant.net,测速
+host-suffix,cbpuspeed.aspensmart.net,测速
 host-suffix,speed.alsalamnet.net,测速
 host-suffix,speedtestshriganganagar.777network.net,测速
 host-suffix,speedtest.viperhost.net,测速
@@ -359,6 +360,7 @@ host-suffix,speedtest.jbarbieri.net,测速
 host-suffix,speedtest.kraus.jbarbieri.net,测速
 host-suffix,speedtest-eqx-sg1.ixtelecom.net,测速
 host-suffix,st02.fynncloud.net,测速
+host-suffix,st01.fynncloud.net,测速
 host-suffix,speedtest.fiberlync.net,测速
 host-suffix,speedtest.fibercomm.net,测速
 host-suffix,speedtest.fibercast.net,测速
@@ -1271,6 +1273,7 @@ host-suffix,speedtest.fibra-amg.com,测速
 host-suffix,testdevelocidad.euskaltel.com,测速
 host-suffix,tr-istanbul.elmashost.com,测速
 host-suffix,tr-bursa.elmashost.com,测速
+host-suffix,speedtest.crservers.com,测速
 host-suffix,speedtest.connectsp.com,测速
 host-suffix,cwf-speedtest-se.clearwave.com,测速
 host-suffix,nmx.cvt.speedtest.civitanet.com,测速
