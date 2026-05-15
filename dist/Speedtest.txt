@@ -530,6 +530,7 @@ host-suffix,speedtest-ookla-par.as62000.net,测速
 host-suffix,speedtest-ookla-nce.as62000.net,测速
 host-suffix,speedtest.mcr0.uk.as61049.net,测速
 host-suffix,speedtest.ams0.nl.as61049.net,测速
+host-suffix,ookla-2.man.as58246.net,测速
 host-suffix,speedtest.as53597.net,测速
 host-suffix,speedtest.fc-fra4.as51202.net,测速
 host-suffix,speedtest.agw2.as49436.net,测速
@@ -2301,6 +2302,7 @@ host-suffix,stladhuka.clicknconnect.co.in,测速
 host-suffix,speedtest.clicknconnect.co.in,测速
 host-suffix,speedtestsonipat.kkdbroadband.co.in,测速
 host-suffix,speedtest.gayatricable.co.in,测速
+host-suffix,speedhld.ddbroadband.co.in,测速
 host-suffix,speed.ddbroadband.co.in,测速
 host-suffix,speedtest01.dataexpress.co.in,测速
 host-suffix,speedtest2.bitsandbyte.co.in,测速
@@ -2718,6 +2720,7 @@ host-suffix,velocidade.lplink.net.br,测速
 host-suffix,sp1.vlink.net.br,测速
 host-suffix,test.logae.net.br,测速
 host-suffix,speedtest.idnet.net.br,测速
+host-suffix,speed.idnet.net.br,测速
 host-suffix,speedtest.amnet.net.br,测速
 host-suffix,velocidade-mns.4wnet.net.br,测速
 host-suffix,speedtest.3dnet.net.br,测速
