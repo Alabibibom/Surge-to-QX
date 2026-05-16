@@ -1461,6 +1461,7 @@ host-suffix,spt-dal1.edgeuno.com,测速
 host-suffix,spt-mia.edgeuno.com,测速
 host-suffix,spt-ist.edgeuno.com,测速
 host-suffix,speedtest-kentwood-1.dnsdigi.com,测速
+host-suffix,speedtest.dimdams.com,测速
 host-suffix,speedtest.cubedns.com,测速
 host-suffix,ptldme-speedtest-ookla-01.st.charter.com,测速
 host-suffix,oxfrma-speedtest-ookla-01.st.charter.com,测速
@@ -1801,6 +1802,7 @@ host-suffix,speedtestwa1.sweet.tv,测速
 host-suffix,gigenet.tstt.net.tt,测速
 host-suffix,turknet16.residential.tr,测速
 host-suffix,speedtestacibadem.netspeed.tr,测速
+host-suffix,st20.netspeed.tr,测速
 host-suffix,speedtest.pulse.web.tr,测速
 host-suffix,speedtest.layra.web.tr,测速
 host-suffix,ookla-server.vim.web.tr,测速
@@ -2172,6 +2174,7 @@ host-suffix,edgemark-lax.cust.edgemark.io,测速
 host-suffix,edgemark-chi.cust.edgemark.io,测速
 host-suffix,speedtest.thn.uk.syntura.io,测速
 host-suffix,speedtest.steppod.io,测速
+host-suffix,spd-ookla.stelogy.io,测速
 host-suffix,spd-sndacawa.wyyerd.io,测速
 host-suffix,spd-phnxaz19.wyyerd.io,测速
 host-suffix,spd-phnhazva.wyyerd.io,测速
@@ -2279,6 +2282,7 @@ host-suffix,speedtestmrd1.airtel.in,测速
 host-suffix,speedtestguw1.airtel.in,测速
 host-suffix,speedtestjmu.airtel.in,测速
 host-suffix,speedtest.stnet.in,测速
+host-suffix,speedmum.n-tel.in,测速
 host-suffix,speedkle.htspl.in,测速
 host-suffix,ns1.fybrg.in,测速
 host-suffix,speedtest-mum.froze.in,测速
